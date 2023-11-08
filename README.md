@@ -1,6 +1,6 @@
 ### Background
 
-In this activity, as the new data engineer at Pewlett Hackard, my first major task was to do a research project about people whom the company employed during the 1980s and 1990s. I designed tables to hold the data from the CSV files, imported the CSV files into a SQL database, and then answered questions about the data. I performed data modeling, data engineering, and data analysis.
+In this activity, as the new data engineer at Pewlett Hackard, my first major task was to do a research project about people whom the company employed during the 1980s and 1990s. I designed tables to hold the data from the CSV files, imported the CSV files into an SQL database, and then answered questions about the data. I performed data modeling, data engineering, and data analysis.
 
 #### Data Modeling
 
