@@ -1,46 +1,46 @@
 -- Create a table for each schema
-CREATE TABLE departments (
-    dept_no VARCHAR PRIMARY KEY,
-    dept_name VARCHAR,
+CREATE TABLE departments_check (
+    dept_no VARCHAR PRIMARY KEY NOT NULL,
+    dept_name VARCHAR
     );
 
 CREATE TABLE titles (
-    title_id VARCHAR PRIMARY KEY,
-    title VARCHAR,
+    title_id VARCHAR PRIMARY KEY NOT NULL,
+    title VARCHAR
     );
 
 CREATE TABLE employees (
-    emp_no INT PRIMARY KEY,
-    emp_title_id VARCHAR,
+    emp_no INT PRIMARY KEY NOT NULL,
+    emp_title_id VARCHAR NOT NULL,
     birth_date DATE,
     first_name VARCHAR,
     last_name VARCHAR,
     Sex VARCHAR,
     hire_date DATE,
-    FOREIGN KEY (emp_title_id) REFERENCES titles(title_id),
+    FOREIGN KEY (emp_title_id) REFERENCES titles(title_id)
     );
 
 CREATE TABLE dept_manager (
-dept_no VARCHAR,
-emp_no INT,
+dept_no VARCHAR NOT NULL,
+emp_no INT NOT NULL,
 FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
-FOREIGN KEY (dept_no) REFERENCES departments(dept_no),
+FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );
 
 CREATE TABLE salaries (
-emp_no INT,
+emp_no INT NOT NULL,
 salaries INT,
-FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
+FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
 CREATE TABLE dept_emp (
-emp_no INT,
-dept_no VARCHAR,
+emp_no INT NOT NULL,
+dept_no VARCHAR NOT NULL,
 FOREIGN KEY (emp_no) REFERENCES employees(emp_no),
-FOREIGN KEY (dept_no) REFERENCES departments(dept_no),
+FOREIGN KEY (dept_no) REFERENCES departments(dept_no)
 );
 
---import data
+--import data,
 
 --query each table to check data input,
 SELECT * FROM departments;
@@ -49,6 +49,12 @@ SELECT * FROM salaries;
 SELECT * FROM titles;
 SELECT * FROM dept_manager;
 SELECT * FROM dept_emp;
+-- DROP TABLE departments;
+-- DROP TABLE employees;
+-- DROP TABLE salaries;
+-- DROP TABLE titles;
+-- DROP TABLE dept_manager;
+-- DROP TABLE dept_emp;
 
 -- List the employee number, last name, first name, sex, and salary of each employee.,
 SELECT employees.emp_no, employees.last_name, employees.first_name, employees.Sex, employees.birth_date, salaries.salaries
